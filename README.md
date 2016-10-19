@@ -77,9 +77,11 @@ These are the default values for localDisk:
 ```
 
 ### Running the example file
+This will save the value "WORLD" in a "HELLO" key (using the stores defined in the `config.json` file):
 ```
 node index.js
 ```
+
 
 ### Operations
 arcache can handle the following operations:
