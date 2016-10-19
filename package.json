@@ -1,0 +1,11 @@
+{
+  "name": "arcache",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "Apache 2.0",
+  "author": "Alan Reid <mail@alanreid.de>",
+  "dependencies": {
+    "memcached": "^2.2.2",
+    "winston": "^2.2.0"
+  }
+}
