@@ -10,8 +10,7 @@ arcache is single-threaded (built with nodejs), but all calls are asynchronous a
 
 ### Installation
 ```
-npm install -g yarn
-yarn install arcache
+git clone https://github.com/alanreid/arcache
 ```
 
 ### Drivers
@@ -75,6 +74,11 @@ These are the default values for localDisk:
 "localDisk": {
   "basePath": "~"
 }
+```
+
+### Running the example file
+```
+node index.js
 ```
 
 ### Operations
