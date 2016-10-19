@@ -6,13 +6,26 @@ With arcache you could, for example, store the keys in memory with memcached and
 
 arcache is single-threaded (built with nodejs), but all calls are asynchronous and stateless. You could scale up simply by running more nodes and loadbalancing them with nginx/HAProxy/etc.
 
-**DISCLAIMER: This library is experimental and unstable**
+**DISCLAIMER: This library is experimental, unstable and untested 😱.**
 
 ### Installation
 ```
 npm install -g yarn
 yarn install arcache
 ```
+
+### Drivers
+Drivers are in charge of storing and retrieving data (for both your keys or your values).
+
+#### Supported drivers
+* localDisk: Stores/retrieves data in the machine running arcache. Mainly for standalone usage. You have to define your `basePath` in the config file.
+* memcached: Stores/retrieves data in memcached. You have to define your `hosts` and your `options` in the config file.
+
+#### Future drivers
+* networkDisk: Stores data/retrieves in a disk somewhere in the network.
+* s3: Stores data/retrieves in AWS S3. You have to define your `credentials` and your `bucket` in the config file.
+* mysql: Stores data/retrieves in MySQL. You have to define your `insertQuery` and your `selectQuery` in the config file.
+* elasticsearch: Stores data/retrieves in Elasticsearch. You have to define your `hosts`, `index`, `options`, `indexQuery` and `searchQuery` in the config file.
 
 ### Configuration
 The `config.json` file contains all required configuration values for arcache and its drivers.
@@ -63,19 +76,6 @@ These are the default values for localDisk:
   "basePath": "~"
 }
 ```
-
-### Drivers
-Drivers are in charge of storing and retrieving data (for both your keys or your values).
-
-#### Supported drivers
-* localDisk: Stores/retrieves data in the machine running arcache. Mainly for standalone usage. You have to define your `basePath` in the config file.
-* memcached: Stores/retrieves data in memcached. You have to define your `hosts` and your `options` in the config file.
-
-#### Future drivers
-* networkDisk: Stores data/retrieves in a disk somewhere in the network.
-* s3: Stores data/retrieves in AWS S3. You have to define your `credentials` and your `bucket` in the config file.
-* mysql: Stores data/retrieves in MySQL. You have to define your `insertQuery` and your `selectQuery` in the config file.
-* elasticsearch: Stores data/retrieves in Elasticsearch. You have to define your `hosts`, `index`, `options`, `indexQuery` and `searchQuery` in the config file.
 
 ### Operations
 arcache can handle the following operations:
